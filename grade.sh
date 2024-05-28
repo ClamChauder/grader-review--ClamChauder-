@@ -1,5 +1,5 @@
-#CPATH='.:lib/hamcrest-core-1.3.jar:lib/junit-4.13.2.jar'
-CPATH='.;lib/hamcrest-core-1.3.jar;lib/junit-4.13.2.jar'
+CPATH='.:lib/hamcrest-core-1.3.jar:lib/junit-4.13.2.jar'
+#CPATH='.;lib/hamcrest-core-1.3.jar;lib/junit-4.13.2.jar'
 
 rm -rf student-submission
 rm -rf grading-area
@@ -39,7 +39,7 @@ else
     echo "Failed to compile"
 fi
 
-java -cp ".;lib/junit-4.13.2.jar;lib/hamcrest-core-1.3.jar" org.junit.runner.JUnitCore TestListExamples > junit.txt
+java -cp ".:lib/hamcrest-core-1.3.jar:lib/junit-4.13.2.jar" org.junit.runner.JUnitCore TestListExamples > junit.txt
 grep -i "failures" junit.txt > find.txt
 
 pass=`grep "OK" junit.txt | cut -d "(" -f 1`
